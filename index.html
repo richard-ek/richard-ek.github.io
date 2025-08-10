@@ -1,60 +1,74 @@
-import { motion } from "framer-motion";
-
-export default function RichardEkSite() {
-  return (
-    <div className="w-screen h-screen overflow-hidden relative font-sans">
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 animate-gradient bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500" />
-      {/* Optional dark overlay with blur to make text pop */}
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
-
-      {/* Main content */}
-      <motion.main
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        className="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-5"
-      >
-        <h1 className="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg">
-          Richard&nbsp;Ek
-        </h1>
-
-        <div className="flex flex-col items-center space-y-2 text-lg md:text-xl">
-          <a
-            href="mailto:richard@richardek.se"
-            className="text-white/90 hover:underline focus:outline-none focus:ring-2 focus:ring-white/60 rounded"
-          >
-            richard@richardek.se
-          </a>
-          <a
-            href="https://www.linkedin.com/in/richard-ek-06456542/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-white/90 hover:underline focus:outline-none focus:ring-2 focus:ring-white/60 rounded"
-          >
-            LinkedIn
-          </a>
-        </div>
-      </motion.main>
-
-      {/* Keyframe & class for animated gradient */}
-      <style jsx>{`
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richard Ek</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
         @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
+        
         .animate-gradient {
-          background-size: 400% 400%;
-          animation: gradient 15s ease infinite;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
         }
-      `}</style>
+        
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="w-screen h-screen overflow-hidden relative font-sans">
+        <!-- Animated gradient background -->
+        <div class="absolute inset-0 animate-gradient bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500"></div>
+        <!-- Optional dark overlay with blur to make text pop -->
+        <div class="absolute inset-0 bg-black/30 backdrop-blur-sm"></div>
+
+        <!-- Main content -->
+        <main class="relative z-10 flex flex-col items-center justify-center h-full text-center space-y-5 fade-in">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white drop-shadow-lg">
+                Richard&nbsp;Ek
+            </h1>
+
+            <div class="flex flex-col items-center space-y-2 text-lg md:text-xl">
+                <a
+                    href="mailto:richard@richardek.se"
+                    class="text-white/90 hover:underline focus:outline-none focus:ring-2 focus:ring-white/60 rounded transition-all duration-200"
+                >
+                    richard@richardek.se
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/richard-ek-06456542/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-white/90 hover:underline focus:outline-none focus:ring-2 focus:ring-white/60 rounded transition-all duration-200"
+                >
+                    LinkedIn
+                </a>
+            </div>
+        </main>
     </div>
-  );
-}
+</body>
+</html>
